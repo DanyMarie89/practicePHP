@@ -53,12 +53,13 @@
                                 &emsp;&emsp;&emsp;$this->model = $model;<br>
                                 &emsp;&emsp;}<br>
 
-                                function __destruct() {
-                                    echo "Name: " {$this->name};
-                                    echo "Model: " {$this->model};
-                                    echo "Year: " {$this->year};
-                                }
+                                function __destruct() {<br>
+                                    &emsp;&emsp;echo "Name: " {$this->name};<br>
+                                    &emsp;&emsp;echo "Model: " {$this->model};<br>
+                                    &emsp;&emsp;echo "Year: " {$this->year};<br>
+                                    &emsp;&emsp;}<br>
                             }
+                            
                         </code>
 
                         <p>When we created our object, we didn't have to call the constructor each time to set each variable. We passed in three arguments and called the get method one by one. Here's our output:</p>
@@ -83,8 +84,8 @@
                                     }
 
                                 }
-                                $honda = new Cars("Honda", 1998, "Civic");
-                                $subaru = new Cars("Subaru", 2003, "Outback");
+                                echo "Name: Honda<br>Model: Civic<br>Year: 1998";
+                                echo "Name: Subaru<br> Model: Outback<br>Year: 2003";
                             ?>
                         </code>
 
