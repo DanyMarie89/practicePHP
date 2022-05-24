@@ -84,6 +84,7 @@ li {
   
 .dropContent a:hover {
     background-color: #ddd;
+    border-left: 4px solid rgba(255, 0, 21, 0.459);
 }
   
 .dropdown:hover .dropContent {
