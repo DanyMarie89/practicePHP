@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PHP Practice - Forms</title>
+        <title>PHP Practice - Required Information and Validation</title>
         <link rel="stylesheet" href="../php_practice.css?v=<?php echo time(); ?>">    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     </head>
     <body>
     <header>
-        <h1>HTML Forms</h1>
+        <h1>Forms:</h1>
+        <h5 style="margin-top: -50px;">Required Information and Validation</h5>
     </header>
     <div id="nav"></div>
         <script>

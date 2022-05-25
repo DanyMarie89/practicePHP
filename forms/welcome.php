@@ -13,10 +13,13 @@
                    $("#nav").replaceWith(data);
                });
             </script>
-            <h3>You've created your first form, 
+            <h3 style="padding: 15px">You've created your first form, 
             <?php
                 echo $_POST["name"];
-                echo "!";
+                echo "!<br>";
+            
+                echo "The email you provided: ";
+               echo $_POST["email"];
             ?>
             </h3>
     </body>
