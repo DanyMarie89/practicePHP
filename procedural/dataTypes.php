@@ -3,40 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PHP Practice with HTML & CSS</title>
-        <link rel="stylesheet" href="php_practice.css?v=<?php echo time(); ?>">
+        <title>PHP Practice - Data Types</title>
+        <link rel="stylesheet" href="../php_practice.css?v=<?php echo time(); ?>">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
     <header>
             <h1>Data Types</h1>
         </header>
         <section>
-            <div class="navBar">
-                <a href="php_practice.php">Home</a>
-                <div class="dropdown">
-                    <button class="dropButton">Procedural PHP
-                        <i class="fa fa-caret-down"></i>
-                        <div class="dropContent">
-                            <li><a class="active" href="dataTypes.php">Data Types</a>
-                            <li><a href="variables.php">Variables</a></li>
-                            <li><a href="scopes.php">Scopes</a></li>
-                            <li><a href="math.php">Math</a></li>
-                            <li><a href="math.php">Conditional</a></li>
-                            <li><a href="functions.php">Functions</a></li>
-                        </div>
-                    </button>
-                </div>
-                <div class="dropdown">
-                    <button class="dropButton">OOP PHP
-                        <i class="fa fa-caret-down"></i>
-                        <div class="dropContent">
-                            <li><a href="objects.php">Objects</a></li>
-                            <li><a href="constructor.php">Constructor</a></li>
-                            <li><a href ="destruct.php">Destruct</a></li>
-                        </div>
-                    </button>
-                </div>
-            </div>
+            <div id="nav"></div>
+                <script>
+                    $.get("../navigation.html", function(data){
+                        $("#nav").replaceWith(data);
+                    });
+                </script>
 
             <article class="main">
                 <h3>What are data types?</h3>

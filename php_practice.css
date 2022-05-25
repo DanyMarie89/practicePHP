@@ -137,3 +137,8 @@ section::after {
         height: auto;
     }
 }
+
+form input{
+    padding: 5px;
+    margin-bottom: 10px;
+}
