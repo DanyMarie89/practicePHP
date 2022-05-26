@@ -20,27 +20,51 @@
         </script>
     <section>
         <article class="main">
-            <h3>Creating Forms Using POST / GET</h3>
-            <p>When creating this form, we will need to create a seperate page to send the data to. That page is one named <em>welcome.php</em> below.</p>
+            <h3>Form Security</h3>
+            <p>The form element is submitted using the method="<em>post/get</em>". As we seen previously with our <a href="../forms/simple.php" style="text-decoration: none;"><strong>&rarr;basic form</strong></a> structure we declared <em>action</em> with just the <em>welcome.php</em> page. This way of posting leaves users information vulnerable for hackers.</p>
+            <p>In order for us to protect information, we will use <em>htmlspecialchars</em> to avoid such exploitations.</p>
             <code>
-                &lt;form action="welcome.php" method="get"><br>
-                Name: &lt;input type="text" name="name">&lt;br><br>
-                E-mail: &lt;input type="text" name="email">&lt;br><br>
-                &lt;input type="submit"><br>
-                &lt;/form>
+            &lt;form method="post"<br> action="&lt;?php echo htmlspecialchars($_SERVER["PHP_SELF]);?>">
             </code>
-            <p>When we fill out the form and click the submit button, the information will be sent over to the <em>welcome.php</em> page. For the message to be displayed, place code in the <em>welcome</em> page shown below:</p>
+            <p>With form validation, on the outside it looks the same and takes information and outputs to user the same way. Behind the scenes, it looks a bit different than our form from the previous page.</p>
             <code>
-                (<em>Any welcome message you want</em>) followed by their name from <strong>GET</strong> method<br>
-                &lt;?php echo $_GET["name"]; ?>&lt;br><br>
-                (<em>Any message you want</em>) followed by their email from <strong>GET</strong> method<br>
-                &lt;?php echo $_GET["email"]; ?>
+                <a href="../forms/code_validation.php" style="text-decoration: none;"><strong>CLICK HERE TO SEE COMPLETED CODE</strong> </a>(Photo Only)
             </code>
-            <form action='welcome.php' method='post'>
-                Name: <input type='text' name='name'><br>
-                Email:  <input type='text' name='email'><br>
-                <input type ='submit'>
+            <?php
+                $name = $email = $phone = $comment = "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $name = user_info($_POST["name"]);
+                    $email = user_info($_POST["email"]);
+                    $phone = user_info($_POST["phone"]);
+                    $comment = user_info($_POST["comment"]);
+                }
+
+                function user_info($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+            ?>
+            <h4>Information Validation Form</h4>
+            <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                Name: <input type="text" name="name"><br>
+                Email: <input type="text" name="email"><br>
+                Phone: <input type="tel" name="phone"><br>
+                Comment:<br> <textarea name="comment" rows="3" cols="30"></textarea><br>
+                <input type="submit" name="submit" value="Submit">
             </form>
+            <h5 style="text-align: left; margin-left: 35%;">
+            <?php
+                echo "Name: $name<br>";
+                echo "Email: $email<br>";
+                echo "Phone: $phone<br>";
+                echo "Comments: $comment<br>";
+            ?>
+            </h5>
+            <p>Learn more about form validation at <a href="https://www.w3schools.com/php/php_form_validation.asp" style="text-decoration: none;"><strong>&rarr;w3schools<strong></a></p>
+            
             
         </article>
     </section>
